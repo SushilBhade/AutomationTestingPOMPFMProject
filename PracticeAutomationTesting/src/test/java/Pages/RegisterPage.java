@@ -39,17 +39,40 @@ WebDriver driver;
 	@FindBy(id="Skills")
 	WebElement skills;
 
+	//CountryDropDown
 	@FindBy(xpath="//*[@id=\"select2-country-container\"]")
 	WebElement country;
 	//*[@id="select2-country-container"]	
 
+	//Language
 	//@FindBy(xpath = "//li[contains(@class, 'ng-scope')]/a")
 	//List<WebElement> languageElements;
 	
-	@FindBy(xpath = "//div[@id='msdd']")
-	     WebElement customDropdown;
-
-	  
+	//@FindBy(xpath = "//div[@id='msdd']")
+	   //  WebElement customDropdown;
+	 
+	@FindBy(id = "Languages")
+	    private WebElement languagesDropdown;
+	
+	//Year
+	@FindBy(id="yearbox")
+	WebElement year;
+	
+	//month
+	@FindBy(css="#basicBootstrapForm > div:nth-child(11) > div:nth-child(3) > select")
+	private WebElement month;
+	
+	//day
+		@FindBy(id="daybox")
+	private	WebElement day;
+	 
+		//FirstPassword
+	 @FindBy(id="firstpassword")
+	 WebElement firstPassword;  
+	 
+	 //ConfirmPassword
+	 @FindBy(id= "secondpassword")
+	 WebElement confirmPassword;
 	//-------------------------------------------------------------------------------	 
 	public void enterFirstName(String name) {
 		firstName.sendKeys(name);
@@ -88,6 +111,7 @@ WebDriver driver;
 	public void selectSkills(String input ) {
 		Select select=new Select(skills);
 		select.selectByVisibleText(input);
+		
 	}
 
 //	public void selectCountry(String inputcountry ) {
@@ -117,19 +141,47 @@ WebDriver driver;
 //	  public void selectLanguage(String... languages) {
 //	        customDropdown.click(); // Open the custom dropdown
 //
-//	        
-//			WebElement languageOption = driver.findElement(By.xpath("//a[contains(text(),'" + languages + "')]"));
-//	        languageOption.click(); // Select the desired option
-//
+//	      
 //}
 
-	  public void selectLanguage(String... languages) {
-		    customDropdown.click(); // Open the custom dropdown
-		    for (String language : languages) {
-		        WebElement languageOption = driver.findElement(By.xpath("//a[contains(text(),'" + language + "')]"));
-		        languageOption.click(); // Select the desired option
-		    
-		    }
+//	  public void selectLanguage(String... languages) {
+//		    customDropdown.click(); // Open the custom dropdown
+//		    for (String language : languages) {
+//		        WebElement languageOption = driver.findElement(By.xpath("//a[contains(text(),'" + language + "')]"));
+//		        languageOption.click(); // Select the desired option
+//		    break;//*[@id="basicBootstrapForm"]/div[7]/div/multi-select/div[2]/ul/li[8]
+//		    }
+//		}
+
+//	 public void selectLanguage(String language) {
+//	        Select select = new Select(languagesDropdown);
+//	        languagesDropdown.click();
+//	        select.selectByVisibleText(language);
+//	    }
+
+
+
+	public void selectYear(String input) {
+		Select select=new Select(year);
+		select.selectByVisibleText(input);
+	}
+	
+	public void selectMonth(String input) {
+		Select select=new Select(month);
+		select.selectByVisibleText(input);
+	}
+	
+	public void selectDay(String input) {
+		Select select=new Select(day);
+		select.selectByVisibleText(input);
+	}
+	
+	 public void enterFirstPassword(String name) {
+			firstPassword.sendKeys(name);
 		}
 
+	 public void enterConfirmPassword(String name) {
+			confirmPassword.sendKeys(name);
+		}
+	 
 }

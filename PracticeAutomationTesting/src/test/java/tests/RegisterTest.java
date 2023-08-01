@@ -13,6 +13,7 @@ import Pages.RegisterPage;
 public class RegisterTest {
 
 	WebDriver driver;
+	RegisterPage registerPage;
 	@BeforeMethod
 	public void setup() {
 		driver=new ChromeDriver();
@@ -22,6 +23,7 @@ public class RegisterTest {
 	@Test
 	public void register() {
 		RegisterPage registerPage=new RegisterPage(driver);
+
 		registerPage.enterFirstName("Amol");
 		registerPage.enterLastName("abc");
 		registerPage.enterAddress("pune");
@@ -33,12 +35,18 @@ public class RegisterTest {
 		hobbies.add("Movies");
 		registerPage.selectHobbies(hobbies);
 		registerPage.selectSkills("Adobe Photoshop");
+
 		//registerPage.selectCountry("India");
-		RegisterPage languages=new RegisterPage(driver);
-		languages.selectLanguage("English");
-		languages.selectLanguage("German");
-		languages.selectLanguage("French");
-		 registerPage.selectLanguage("English");
-	
+		//	RegisterPage languages=new RegisterPage(driver);
+		//		languages.selectLanguage("English");
+
+		//registerPage.selectLanguage("English");
+		//registerPage.selectLanguage("Arabic");
+
+		registerPage.selectYear("1965");
+		registerPage.selectMonth("January");
+		registerPage.selectDay("15");
+		registerPage.enterFirstPassword("Asdf1234");
+		registerPage.enterConfirmPassword("Asdf1234");
 	}
 }
